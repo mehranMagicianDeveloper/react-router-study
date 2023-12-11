@@ -17,7 +17,6 @@ function App() {
         <Route path="vans" element={<Vans />} />
         <Route path="host" element={<Host />} />
         <Route path="login" element={<Login />} />
-        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
