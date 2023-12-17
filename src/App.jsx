@@ -43,7 +43,7 @@ function App() {
               {/* host van path https://dmain.net/host/vans/id/ */}
               <Route path=":id" element={<HostVanDetail />}>
                 <Route index element={<HostVanInfo />} />
-                <Route path="photo" element={<HostVanPhoto />} />
+                <Route path="photos" element={<HostVanPhoto />} />
                 <Route path="pricing" element={<HostVanPricing />} />
               </Route>
             </Route>

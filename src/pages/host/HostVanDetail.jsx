@@ -48,13 +48,13 @@ const HostVanDetail = () => {
                   end
                   style={({ isActive }) => (isActive ? activeStyle : null)}
                 >
-                  Info
+                  Detail
                 </NavLink>
                 <NavLink
-                  to="photo"
+                  to="photos"
                   style={({ isActive }) => (isActive ? activeStyle : null)}
                 >
-                  Photo
+                  Photos
                 </NavLink>
                 <NavLink
                   to="pricing"
