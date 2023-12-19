@@ -24,37 +24,29 @@ const HostVanDetail = () => {
       <h1>
         {currentVan ? (
           <section>
-            <Link to=".." style={{ textDecoration: "underline" }}>
+            <Link to=".." className="back-button">
               &larr; go back to vans
             </Link>
 
             <div className="host-van-detail-layout-container">
               <div className="host-van-detail">
-                <img
-                  src={currentVan.imageUrl}
-                  alt={currentVan.id}
-                  width={150}
-                />
+                <img src={currentVan.imageUrl} alt={currentVan.id} />
                 <div className="host-van-detail-info-text">
-                  <p>{currentVan.type}</p>
-                  <p>{currentVan.name}</p>
-                  <p>{currentVan.price}</p>
-                  <p>{currentVan.descriptiom}</p>
+                  <i className={`van-type van-type-${currentVan.type}`}>
+                    {currentVan.type}
+                  </i>
+                  <h3>{currentVan.name}</h3>
+                  <h4>${currentVan.price}/day</h4>
                 </div>
               </div>
-              <nav className="host-nav">
+
+              <nav className="host-van-detail-nav">
                 <NavLink
                   to="."
                   end
                   style={({ isActive }) => (isActive ? activeStyle : null)}
                 >
-                  Detail
-                </NavLink>
-                <NavLink
-                  to="photos"
-                  style={({ isActive }) => (isActive ? activeStyle : null)}
-                >
-                  Photos
+                  Details
                 </NavLink>
                 <NavLink
                   to="pricing"
@@ -62,10 +54,15 @@ const HostVanDetail = () => {
                 >
                   Pricing
                 </NavLink>
+                <NavLink
+                  to="photos"
+                  style={({ isActive }) => (isActive ? activeStyle : null)}
+                >
+                  Photos
+                </NavLink>
               </nav>
+              <Outlet context={{ currentVan }} />
             </div>
-
-            <Outlet />
           </section>
         ) : (
           <>
