@@ -180,6 +180,8 @@ footer {
 .van-list-filter-buttons {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .van-list-filter-buttons > a {

@@ -4,9 +4,20 @@ import { useOutletContext } from "react-router-dom";
 const HostVanInfo = () => {
   const { currentVan } = useOutletContext();
   return (
-    <div>
-      <h1>{currentVan.name}</h1>
-    </div>
+    <section className="host-van-detail-info">
+      <h3>
+        Name: <span>{currentVan.name}</span>
+      </h3>
+      <h4>
+        Category: <span>{currentVan.type}</span>
+      </h4>
+      <h4>
+        Description: <span>{currentVan.description}</span>
+      </h4>
+      <h4>
+        Visibility: <span>Public</span>
+      </h4>
+    </section>
   );
 };
 

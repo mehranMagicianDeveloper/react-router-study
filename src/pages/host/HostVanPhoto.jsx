@@ -6,7 +6,11 @@ const HostVanPhoto = () => {
   return (
     <div>
       <h1>
-        <img src={currentVan.imageUrl} alt="van" />
+        <img
+          src={currentVan.imageUrl}
+          alt="van"
+          className="host-van-detail-image"
+        />
       </h1>
     </div>
   );
