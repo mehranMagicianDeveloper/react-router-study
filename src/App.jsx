@@ -15,6 +15,7 @@ import HostVanDetail from "./pages/host/HostVanDetail";
 import HostVanInfo from "./pages/host/HostVanInfo";
 import HostVanPhoto from "./pages/host/HostVanPhoto";
 import HostVanPricing from "./pages/host/HostVanPricing";
+import NotFound from "./pages/not-found/NotFound";
 
 function App() {
   return (
@@ -53,12 +54,7 @@ function App() {
             <Route path="reviews" element={<Reviews />} />
           </Route>
           <Route path="login" element={<Login />} />
-          <Route
-            path="*"
-            element={
-              <h1 style={{ textAlign: "center" }}>Page is not found!</h1>
-            }
-          />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
