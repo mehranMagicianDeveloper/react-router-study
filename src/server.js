@@ -74,6 +74,7 @@ createServer({
 
     this.get("/vans", (schema, request) => {
       return schema.vans.all();
+      // return new Response(404, {}, { error: "Fetching data" });
     });
 
     this.get("/vans/:id", (schema, request) => {
