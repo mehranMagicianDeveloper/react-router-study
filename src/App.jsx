@@ -26,10 +26,13 @@ function App() {
           <Route path="about" element={<About />} />
 
           {/* vans path https://dmain.net/vans */}
-          <Route path="vans">
+          {/* <Route path="vans">
             <Route index element={<Vans />} />
             <Route path=":id" element={<VanDetail />} />
-          </Route>
+          </Route> */}
+
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetail />} />
 
           {/* host path https://dmain.net/host/ */}
           <Route path="host" element={<HostLayout />}>
@@ -50,6 +53,12 @@ function App() {
             <Route path="reviews" element={<Reviews />} />
           </Route>
           <Route path="login" element={<Login />} />
+          <Route
+            path="*"
+            element={
+              <h1 style={{ textAlign: "center" }}>Page is not found!</h1>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -21,7 +21,10 @@ const Vans = () => {
 
   const vansJSX = filterdVans.map((van) => {
     return (
-      <Link to={`/vans/${van.id}`}>
+      <Link
+        to={`/vans/${van.id}`}
+        state={{ search: `?${searchParams.toString()}` }}
+      >
         <div className="van-tile" key={van.id}>
           <img src={van.imageUrl} alt="van" />
           <div className="van-info">
