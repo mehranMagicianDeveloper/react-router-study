@@ -9,7 +9,7 @@ import "./App.css";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Vans, { loader as vansLoader } from "./pages/vans/Vans";
-import Login from "./pages/login/Login";
+import Login, { loader as loginLoader } from "./pages/login/Login";
 import VanDetail, { loader as vanDetailLoader } from "./pages/vans/VanDetail";
 import Layout from "./components/Layout";
 import Income from "./pages/host/Income";
@@ -32,7 +32,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />} errorElement={<Error />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={<Login />} loader={loginLoader} />
       {/* vans path https://dmain.net/vans */}
       {/* <Route path="vans">
             <Route index element={<Vans />} />
@@ -43,7 +43,11 @@ const router = createBrowserRouter(
       <Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} />
 
       {/* host path https://dmain.net/host/ */}
-      <Route path="host" element={<HostLayout />}>
+      <Route
+        path="host"
+        element={<HostLayout />}
+        loader={async () => await requireAuth()}
+      >
         <Route
           index
           element={<Dashboard />}
