@@ -25,3 +25,5 @@ export async function getHostVans(id) {
   const data = await res.json();
   return data.vans;
 }
+
+export async function loginUser(formData) {}
