@@ -25,6 +25,7 @@ import HostVanPhoto from "./pages/host/HostVanPhoto";
 import HostVanPricing from "./pages/host/HostVanPricing";
 import NotFound from "./pages/not-found/NotFound";
 import Error from "./components/Error";
+import { requireAuth } from "./utilities/utils";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,25 +47,19 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Dashboard />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
         <Route
           path="income"
           element={<Income />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
 
         {/* host vans path https://dmain.net/host/vans */}
         <Route
           path="vans"
           element={<Outlet />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         >
           <Route index element={<HostVans />} loader={hostVansLoader} />
 
@@ -77,31 +72,25 @@ const router = createBrowserRouter(
             <Route
               index
               element={<HostVanInfo />}
-              loader={async () => {
-                return null;
-              }}
+              loader={async () => await requireAuth()}
             />
             <Route
               path="photos"
               element={<HostVanPhoto />}
-              loader={async () => {
-                return null;
-              }}
+              loader={async () => await requireAuth()}
             />
             <Route
               path="pricing"
               element={<HostVanPricing />}
-              loader={async () => {
-                return null;
-              }}
+              loader={async () => await requireAuth()}
             />
           </Route>
         </Route>
         <Route
           path="reviews"
           element={<Reviews />}
-          loader={() => {
-            return null;
+          loader={async () => {
+            return await requireAuth();
           }}
         />
       </Route>

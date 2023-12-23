@@ -1,14 +1,15 @@
 import React from "react";
 import { useRouteError } from "react-router-dom";
 
-const Error = () => {
+export default function Error() {
   const error = useRouteError();
 
   return (
-    <div>
+    <>
       <h1>Error: {error.message}</h1>
-    </div>
+      <pre>
+        {error.status} - {error.statusText}
+      </pre>
+    </>
   );
-};
-
-export default Error;
+}
