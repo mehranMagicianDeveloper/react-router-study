@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import AvatarIcon from "../assets/images/avatar-icon.png";
+import { Button } from "@mui/material";
 
 export default function Header() {
   const activeStyles = {
@@ -8,6 +9,10 @@ export default function Header() {
     textDecoration: "underline",
     color: "#161616",
   };
+
+  function fakeLogOut() {
+    localStorage.removeItem("loggedIn");
+  }
 
   return (
     <header>
@@ -36,6 +41,7 @@ export default function Header() {
         <Link to="login" className="login-link">
           <img src={AvatarIcon} className="login-icon" alt="login logo" />
         </Link>
+        <Button onClick={fakeLogOut}>X</Button>
       </nav>
     </header>
   );
