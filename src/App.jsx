@@ -68,6 +68,7 @@ const router = createBrowserRouter(
           path="vans"
           element={<Outlet />}
           loader={async ({ request }) => await requireAuth(request)}
+          errorElement={<Error />}
         >
           <Route index element={<HostVans />} loader={hostVansLoader} />
 
@@ -76,6 +77,7 @@ const router = createBrowserRouter(
             path=":id"
             element={<HostVanDetail />}
             loader={hotVanDetailLoader}
+            errorElement={<Error />}
           >
             <Route
               index
